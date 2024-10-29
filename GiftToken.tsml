@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ts:token xmlns:ts="http://tokenscript.org/2024/01/tokenscript"
+          xmlns:xml="http://www.w3.org/XML/1998/namespace"
+          xsi:schemaLocation="http://tokenscript.org/2024/01/tokenscript https://www.tokenscript.org/schemas/2024-01/tokenscript.xsd"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:ethereum="urn:ethereum:constantinople"
+          name="GiftToken">
+	<ts:label>
+		<ts:plurals xml:lang="en">
+			<ts:string quantity="one">GiftToken</ts:string>
+			<ts:string quantity="other">GiftTokens</ts:string>
+		</ts:plurals>
+	</ts:label>
+	<ts:meta>
+		<ts:description xml:lang="en">A generic token template</ts:description>
+		<ts:aboutUrl xml:lang="en">https://example.com</ts:aboutUrl>
+		<ts:iconUrl xml:lang="en">https://img.freepik.com/premium-vector/gift-cartoon-colored-clipart-illustration_576561-5251.jpg</ts:iconUrl>
+	</ts:meta>
+	<ts:contract interface="erc1155" name="GiftTokenContract">
+		<ts:address network="11155111">0xbFc7adA941f7816044d3CC2761CDc1ac1b5CA087</ts:address>
+	</ts:contract>
+	<ts:origins>
+		<ts:ethereum contract="GiftTokenContract"/>
+	</ts:origins>
+	<ts:cards>
+		<ts:card type="action" name="Buy" buttonClass="primary">
+			<ts:label>
+				<ts:string xml:lang="en">Buy</ts:string>
+			</ts:label>
+			<ts:transaction>
+                <ethereum:transaction function="buy" contract="GiftTokenContract">
+                    <ts:data/>
+                </ethereum:transaction>
+            </ts:transaction>
+			   <ts:view xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+                <button>Buy</button>
+				<p>This is an onboarding card for Gift token</p>
+                <br/>
+                <p>Use this to mint your own tokens.</p>
+            </ts:view>
+		</ts:card>
+	</ts:cards>
+	</ts:token>
